@@ -17,7 +17,7 @@ public class AdminController {
 
     @GetMapping("/getall")
     public ResponseEntity<List<Admin>> getAllAdmins(){
-        return new ResponseEntity<>(service.getAllAdmins(), HttpStatus.FOUND);
+        return new ResponseEntity<>(service.getAllAdmins(), HttpStatus.OK);
     }
 
     @GetMapping("/getbyid/{id}")
@@ -25,12 +25,12 @@ public class AdminController {
         if(service.getById(id) == null){
             return new ResponseEntity<>(null,HttpStatus.NO_CONTENT);
         }
-        return new ResponseEntity<>(service.getById(id),HttpStatus.FOUND);
+        return new ResponseEntity<>(service.getById(id),HttpStatus.OK);
     }
 
     @PostMapping("/save")
     public ResponseEntity<Admin> saveAdmin(@RequestBody Admin admin){
-        return new ResponseEntity<>(service.addNewAdmin(admin),HttpStatus.CREATED);
+        return new ResponseEntity<>(service.addNewAdmin(admin),HttpStatus.OK);
     }
 
 }

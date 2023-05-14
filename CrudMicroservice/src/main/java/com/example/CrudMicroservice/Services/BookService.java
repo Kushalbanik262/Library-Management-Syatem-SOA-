@@ -50,6 +50,9 @@ public class BookService {
     }
 
     public Book updateBook(Book book){
+        logger.info("Saving Book:{}",book);
+        Book newBook = bookRepo.findById(book.getId()).get();
+        newBook.setEngaged(true);
         return bookRepo.save(book);
     }
 

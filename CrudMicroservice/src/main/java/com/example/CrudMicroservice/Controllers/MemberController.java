@@ -18,7 +18,7 @@ public class MemberController {
 
     @GetMapping("/getall")
     public ResponseEntity<List<Member>> getAllMembers(){
-        return new ResponseEntity<>(service.getAllMembers(), HttpStatus.FOUND);
+        return new ResponseEntity<>(service.getAllMembers(), HttpStatus.OK);
     }
 
 
@@ -27,18 +27,18 @@ public class MemberController {
         if(service.getMemberById(id) == null){
             return new ResponseEntity<>(null,HttpStatus.NO_CONTENT);
         }
-        return new ResponseEntity<>(service.getMemberById(id),HttpStatus.FOUND);
+        return new ResponseEntity<>(service.getMemberById(id),HttpStatus.OK);
     }
 
 
     @PostMapping("/save")
     public ResponseEntity<Member> saveMember(@RequestBody MemberDto memberDto){
-        return new ResponseEntity<>(service.saveMember(memberDto),HttpStatus.CREATED);
+        return new ResponseEntity<>(service.saveMember(memberDto),HttpStatus.OK);
     }
 
     @PutMapping("/update")
     public ResponseEntity<Member> updateMember(@RequestParam Member member){
-        return new ResponseEntity<>(service.updateMember(member),HttpStatus.FOUND);
+        return new ResponseEntity<>(service.updateMember(member),HttpStatus.OK);
     }
 
 }

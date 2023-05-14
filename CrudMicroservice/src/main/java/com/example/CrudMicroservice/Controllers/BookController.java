@@ -20,7 +20,7 @@ public class BookController {
 
     @GetMapping("/getall")
     public ResponseEntity<List<Book>> getAllBooks(){
-        return new ResponseEntity<>(service.getAllBooks(), HttpStatus.FOUND);
+        return new ResponseEntity<>(service.getAllBooks(), HttpStatus.OK);
     }
 
 
@@ -29,18 +29,18 @@ public class BookController {
         if(service.getBookById(id) == null){
             return new ResponseEntity<>(null,HttpStatus.NO_CONTENT);
         }
-        return new ResponseEntity<>(service.getBookById(id),HttpStatus.FOUND);
+        return new ResponseEntity<>(service.getBookById(id),HttpStatus.OK);
     }
 
 
     @PostMapping("/save")
     public ResponseEntity<Book> saveBook(@RequestBody BookDto bookDto){
-        return new ResponseEntity<>(service.saveBook(bookDto),HttpStatus.CREATED);
+        return new ResponseEntity<>(service.saveBook(bookDto),HttpStatus.OK);
     }
 
     @PutMapping("/update")
-    public ResponseEntity<Book> updateBook(Book book){
-        return new ResponseEntity<>(service.updateBook(book),HttpStatus.FOUND);
+    public ResponseEntity<Book> updateBook(@RequestBody Book book){
+        return new ResponseEntity<>(service.updateBook(book),HttpStatus.OK);
     }
 
 }
