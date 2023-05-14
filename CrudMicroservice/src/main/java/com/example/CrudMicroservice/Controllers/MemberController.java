@@ -32,7 +32,7 @@ public class MemberController {
 
 
     @PostMapping("/save")
-    public ResponseEntity<Member> saveMember(@RequestParam MemberDto memberDto){
+    public ResponseEntity<Member> saveMember(@RequestBody MemberDto memberDto){
         return new ResponseEntity<>(service.saveMember(memberDto),HttpStatus.CREATED);
     }
 
